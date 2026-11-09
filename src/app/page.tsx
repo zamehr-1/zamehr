@@ -83,8 +83,8 @@ export default function HomePage() {
 
       <section className="relative min-h-[70svh] overflow-hidden bg-emerald-deep md:min-h-[80svh]">
         <ResponsiveHeroImage
-          webSrc="/images/4-web.jpg"
-          mobSrc="/images/4-mob.jpg"
+          webSrc="/images/6-web.jpg"
+          mobSrc="/images/6-mob.jpg"
           alt="Jewellery that carries meaning"
           className="object-cover object-center"
         />
