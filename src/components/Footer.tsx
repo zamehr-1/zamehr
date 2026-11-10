@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { brand, nav } from "@/lib/content";
 
+const policyLinks = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms & Conditions" },
+  { href: "/custom-policy", label: "Custom Order Policy" },
+  { href: "/shipping", label: "Shipping & Delivery" },
+] as const;
+
 export function Footer() {
   return (
     <footer className="bg-emerald-deep text-pearl">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-10 md:py-20">
+      <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:px-10 md:py-20">
         <div>
           <p className="font-display text-3xl tracking-[0.22em]">{brand.name}</p>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-pearl/75">
@@ -20,6 +27,21 @@ export function Footer() {
           </p>
           <ul className="space-y-3 text-sm text-pearl/80">
             {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="transition-colors hover:text-pearl">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-4 text-[0.65rem] tracking-[0.22em] uppercase text-gold-bright">
+            Policies
+          </p>
+          <ul className="space-y-3 text-sm text-pearl/80">
+            {policyLinks.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="transition-colors hover:text-pearl">
                   {item.label}
